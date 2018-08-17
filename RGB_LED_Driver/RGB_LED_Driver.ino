@@ -20,8 +20,10 @@
 #define CTRL_B 4
 #define CTRL_MAIN 5
 
-float PERIOD=5; /// cycle time in ms
-float STEP=3; /// brightness step per cycle
+/// cycle time in ms
+float PERIOD=5;
+/// brightness step per cycle
+float STEP=3; 
 
 /// Initial Red, Green, and Blue values
 float R_val = 100;
