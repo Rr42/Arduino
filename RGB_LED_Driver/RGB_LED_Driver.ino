@@ -13,12 +13,14 @@
 * |-------------------------------------|
 * 
 */
+
+/// Macros for pin definitions
 #define CTRL_R 2
 #define CTRL_G 3
 #define CTRL_B 4
 #define CTRL_MAIN 5
 
-float PERIOD=5; /// ms
+float PERIOD=5; /// cycle time in ms
 float STEP=3; /// brightness step per cycle
 
 /// Initial Red, Green, and Blue values
