@@ -1,24 +1,44 @@
+/* RGB LED strip driver
+* This code for an Arduino Uno to be used as a driver for RGB LED strips.
+* The program contains 5 different animations namely, flow, shift, blue_up, green_up, and red_up.
+* The pin connection between the RGB LED strip and the Uno is given in the below table:
+* |-------------------------------------|
+* | Arduino Uno  |    RGB LED strip     |
+* |-------------------------------------|
+* |      2       |       Red pin        |
+* |      3       |      Green pin       |
+* |      4       |      Blue pin        |
+* |      5       |  White (Enable) pin  |
+* |     GND      |      Black pin       |
+* |-------------------------------------|
+* 
+*/
 #define CTRL_R 2
 #define CTRL_G 3
 #define CTRL_B 4
 #define CTRL_MAIN 5
 
-float PERIOD=5;
-float STEP=3;
+float PERIOD=5; /// ms
+float STEP=3; /// brightness step per cycle
 
+/// Initial Red, Green, and Blue values
 float R_val = 100;
 float G_val = 0;
 float B_val = 0;
 
+/// Function to set PWM output to required pin
 void pwmWrite(int pin, float duty);
 
+/// Functions for RGB animations
 void flow();
 void shift();
 void blue_up();
 void green_up();
 void red_up();
 
-void setup() {
+/// Main/init function to setup pins and initial values
+void setup() 
+{
   pinMode(CTRL_R, OUTPUT);
   pinMode(CTRL_G, OUTPUT);
   pinMode(CTRL_B, OUTPUT);
@@ -30,6 +50,7 @@ void setup() {
   digitalWrite(CTRL_B, HIGH);
 }
 
+/// Loop function to call different animations in a fixed order
 void loop() 
 {
   flow();
